@@ -1,3 +1,15 @@
+"""A simple python library for combinatorics
+
+counting functions:
+fact(n) - factorial of n
+nCr(n,r)- number of ways one could choose r items from n distinct items
+nPr(n,r)- number of permutations of length r from n distinct items
+permutations_with_nondistinct(n,*args) - number of permutation
+    that can be created from len(args) groups of identical items each 
+    of len(args[i])
+
+"""
+
 def fact(n):
     ans = 1
     for i in range(2,n+1):
@@ -34,15 +46,11 @@ def stirling1(n,m):
             nested_ans += ((-1)**j * j**(n-m+k))/(fact(j)*fact(k-j))
         ans += nested_ans*ans1
     return ans * (fact(2*n-m)/fact(m-1))
-# stirling partition numbers tell us how many ways we can place n distinct items into unlabled groups
 def stirling2(n,k):
     ans = 0
     for i in range(k+1):
         ans += (-1)**i * nCr(k,i) * (k-i)**n
     return ans // fact(k)
-# used for counting number of unique combinations of k identical items of n types.
-# used for counting number of ways to distribute n items into k groups
-# first arg is the identical category, second is the not unique category
 def dots_lines(n,k):
     return nCr(n + k-1, k-1)
 def multinomial_coefficient_with_unlabeled_groups(n,*args):
