@@ -2,8 +2,8 @@
 
 counting functions:
 fact(n) - factorial of n
-nCr(n,r)- number of ways one could choose r items from n distinct items
-nPr(n,r)- number of permutations of length r from n distinct items
+C(n,r)- number of ways one could choose r items from n distinct items
+P(n,r)- number of permutations of length r from n distinct items
 permutations_with_nondistinct(n,*args) - number of permutation
     that can be created from len(args) groups of identical items each 
     of len(args[i])
@@ -15,11 +15,11 @@ def fact(n):
     for i in range(2,n+1):
         ans *= i
     return ans
-def nCr(n,r):
+def C(n,r):
     if n < 0:
-        return nCr(-n+r-1,r) * (-1)**r
-    return nPr(n,r) // fact(r)
-def nPr(n,r):
+        return C(-n+r-1,r) * (-1)**r
+    return P(n,r) // fact(r)
+def P(n,r):
     ans = 1
     for i in range(n-r+1, n+1):
         ans*=i
@@ -49,17 +49,17 @@ def stirling1(n,m):
 def stirling2(n,k):
     ans = 0
     for i in range(k+1):
-        ans += (-1)**i * nCr(k,i) * (k-i)**n
+        ans += (-1)**i * C(k,i) * (k-i)**n
     return ans // fact(k)
 def stars_bars(n,k):
-    """stars_bars(n,k) === nCr(n+k-1, k-1)
+    """stars_bars(n,k) === C(n+k-1, k-1)
 Where n is the number of identical items and k is tne number of buckets to place them in"""
-    return nCr(n + k-1, k-1)
+    return C(n + k-1, k-1)
 def multinomial_coefficient_with_unlabeled_groups(n,*args):
     return multinomial_coefficient(n,*args) // fact(len(args))
 def binomial_theorem(a,b,n):
     ans = 0
     for i in range(n+1):
-        ans += nCr(n,i) * a**(n-i) * b**(i)
+        ans += C(n,i) * a**(n-i) * b**(i)
     return ans
 
