@@ -51,7 +51,15 @@ def stirling2(n,k):
     for i in range(k+1):
         ans += (-1)**i * nCr(k,i) * (k-i)**n
     return ans // fact(k)
-def dots_lines(n,k):
+def stars_bars(n,k):
+    """stars_bars(n,k) === nCr(n+k-1, k-1)
+Where n is the number of identical items and k is tne number of buckets to place them in"""
     return nCr(n + k-1, k-1)
 def multinomial_coefficient_with_unlabeled_groups(n,*args):
     return multinomial_coefficient(n,*args) // fact(len(args))
+def binomial_theorem(a,b,n):
+    ans = 0
+    for i in range(n+1):
+        ans += nCr(n,i) * a**(n-i) * b**(i)
+    return ans
+
