@@ -62,4 +62,8 @@ def binomial_theorem(a,b,n):
     for i in range(n+1):
         ans += C(n,i) * a**(n-i) * b**(i)
     return ans
-
+"""
+Catalin number:
+"""
+def catalin(n):
+    return (1/(n+1))*C(2*n,n)
