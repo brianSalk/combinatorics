@@ -83,3 +83,35 @@ def catalin(n):
     calculates the nth catalin number.
     cataline numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
     return (1/(n+1))*C(2*n,n)
+class triangle:
+    """this class creates pascals triangle"""
+    def __init__(self,n=0):
+        self.arr = []
+        prev = [1]
+        self.arr.append(prev)
+        row = []
+        for _ in range(2,n+1):
+            row = [1]
+            for i in range(len(self.arr) - 1 ):
+                row.append(prev[i] + prev[i+1])
+            row.append(1)
+            self.arr.append(row)
+            prev = row
+    def get(self,row=0,col=0):
+        if col >= row:
+            raise IndexError("collumn must be in range [0,row]")
+        if row >= len(self.arr): # grow triangle to requested size
+            prev = self.arr[-1]
+            for _ in range(row-len(self.arr)+1):
+                curr = [1]
+                for i in range(len(prev)-1):
+                    curr.append(prev[i] + prev[i+1])
+                curr.append(1)
+                self.arr.append(curr)
+                prev = curr
+
+        print(self.arr[row][col])
+
+    def print(self):
+        for row in self.arr:
+            print(row)
