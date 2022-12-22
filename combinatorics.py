@@ -64,6 +64,14 @@ def stirling2(n,k):
     for i in range(k+1):
         ans += (-1)**i * C(k,i) * (k-i)**n
     return ans // fact(k)
+def bell(n):
+    """bell(n): where n is a positive integer:
+        calculates the number of nonempty subsets a set of size 'n' can
+        be partitioned into"""
+    ans = 0
+    for k in range(1,n+1):
+        ans += stirling2(n,k)
+    return ans
 def stars_bars(n,k):
     """stars_bars(n,k) == C(n+k-1, k-1)
 Where n is the number of identical items and k is tne number of buckets to place them in"""
