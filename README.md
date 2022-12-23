@@ -16,7 +16,7 @@ n!
 {n \choose r} = \frac{n!}{(n-r)!r!}
 ```
 ## multinomial
-### multinomial(n,*args): count number of distinct permutations of size n when each args is a group of 1 or more identical items
+### multinomial(n,r1,r2,r3...): count number of distinct permutations of size n when each r is a group of 1 or more identical items
 ```math
-{n \choose r_1 r_2 r_3...}
+{n \choose r_1 r_2 r_3...} = \frac{n!}{r_1! r_2! r_3!...}
 ```
