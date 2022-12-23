@@ -2,7 +2,7 @@
 A python library of various useful combinatorics functions and classes.
 ## fact
 ### fact(n): calculate factorial of n
-```!
+```math
 n!
 ```
 ## C
