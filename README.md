@@ -5,6 +5,11 @@ A python library of various useful combinatorics functions and classes.
 ```math
 n!
 ```
+## P
+### P(n,r): count permutations of size r that can be made from n distinct items.
+```math
+\frac{n!}{(n-r)!}
+```
 ## C
 ### C(n,r): count distinct combinations of size r that can be made from n distinct items.
 ```math
