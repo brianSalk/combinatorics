@@ -85,12 +85,12 @@ def binomial_theorem(a,b,n):
     for i in range(n+1):
         ans += C(n,i) * a**(n-i) * b**(i)
     return ans
-def catalin(n):
+def catalan(n):
     """catalin(n): where n is non-negative
 
-    calculates the nth catalin number.
-    cataline numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
-    return (1/(n+1))*C(2*n,n)
+    calculates the nth catalan number.
+    catalan numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
+    return fact(2*n) // (fact(n+1)*fact(n))
 class triangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
