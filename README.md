@@ -23,5 +23,5 @@ n!
 ## sterling 1: sterling cycle number.
 ### sterling1(n,r): count number of unique ways to arrange n distinct items in r cycles, excluding rotations and reflections.
 ```math
-\left\[\right\]
+\left[\right]
 ```
