@@ -15,17 +15,17 @@ n!
 ```math
 {n \choose r} = \frac{n!}{(n-r)!r!}
 ```
-## multinomial coefficient
+## multinomial
 ### multinomial(n,r1,r2,r3...): count number of distinct permutations of size n when each r is a group of 1 or more identical items
 ```math
 {n \choose r_1 r_2 r_3...} = \frac{n!}{r_1! r_2! r_3!...}
 ```
-## Sterling number of the first kind (sterling cycle number)
+## sterling1
 ### sterling1(n,r): count number of unique ways to arrange n distinct items in r non-empty cycles, excluding rotations and reflections.
 ```math
 \left[ n \atop r \right]
 ```
-## Sterling number of the second kind (Sterling partition number)
+## sterling2
 ### sterling2(n,r): count number of unique ways to partition n distinct items into r non-empty groups
 ```math
 \left\{ n \atop r \right\}
