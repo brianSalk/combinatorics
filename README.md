@@ -20,3 +20,8 @@ n!
 ```math
 {n \choose r_1 r_2 r_3...} = \frac{n!}{r_1! r_2! r_3!...}
 ```
+## sterling 1: sterling cycle number.
+### sterling1(n,r): count number of unique ways to arrange n distinct items in r cycles, excluding rotations and reflections.
+'''math
+\left\[\right\]
+'''
