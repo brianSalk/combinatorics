@@ -35,3 +35,8 @@ n!
 ```math
 \sum_{k=1}^{n} \left\{ n \atop k \right\}
 ```
+## stars_bars
+### stars_bars(n,k): calculate groups of identical objects
+```math
+{ n + k - 1 \choose k-1 }
+```
