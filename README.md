@@ -30,3 +30,8 @@ n!
 ```math
 \left\{ n \atop r \right\}
 ```
+## bell
+### bell(n): count unique partitions of a set
+```math
+\sum_{k=1}^{n} \left\{ n \atop k \right\}
+```
