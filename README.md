@@ -45,3 +45,8 @@ n!
 ```math
 (a+b)^n = \sum_{k=0}^{n} { n \choose k } a^{n-k} b^k
 ```
+## catalan
+### catalan(n) where n is any non-negative integer
+```math
+\dfrac{(2n)!}{(n+1)!n!}
+```
