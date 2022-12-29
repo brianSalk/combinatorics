@@ -76,9 +76,6 @@ def stars_bars(n,k):
     """stars_bars(n,k) == C(n+k-1, k-1)
 Where n is the number of identical items and k is tne number of buckets to place them in"""
     return C(n + k-1, k-1)
-def multinomial_unlabeled(n,*args):
-    """multinomial_unlabeled(n,*args) where all args are non-negative and sum(args) <= n"""
-    return multinomial_coefficient(n,*args) // fact(len(args))
 def binomial_theorem(a,b,n):
     """binomial_theorem(a,b,n)"""
     ans = 0
