@@ -40,3 +40,8 @@ n!
 ```math
 { n + k - 1 \choose k-1 }
 ```
+## binomial_theorem
+### binomial_theorem(a,b,n): where a and b are any two terms that are added and n is the power term.
+```math
+(a+b)^2 = \sum_{k=0}^{n} { n \choose k } a^{n-k} b^k
+```
