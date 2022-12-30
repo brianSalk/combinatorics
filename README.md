@@ -60,4 +60,4 @@ n!
 ### print(self) 
   print entire triangle up to the last row specified by use
 ### data(self)
-  get raw array that stores triangle data
+  get 2D python list that stores triangle data
