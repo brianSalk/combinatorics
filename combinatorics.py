@@ -120,3 +120,5 @@ class triangle:
     def print(self):
         for row in self.arr:
             print(row)
+    def data(self):
+        return self.arr
