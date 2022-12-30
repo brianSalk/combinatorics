@@ -1,5 +1,6 @@
 # combinatorics
 A python library of various useful combinatorics functions and classes.
+# FUNCTIONS
 ## fact
 ### fact(n): calculate factorial of n
 ```math
@@ -50,3 +51,9 @@ n!
 ```math
 \dfrac{(2n)!}{(n+1)!n!}
 ```
+# CLASSES
+## triangle
+### __init__(self): create new pascals triangle of size 0 (empty triangle)
+### get(self,row,col): retrieve value at the specified row and col in pascal's triangle.
+### print(self): print entire triangle up to the last row specified by use
+### data(self): get raw array that stores triangle data
