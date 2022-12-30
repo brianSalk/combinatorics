@@ -115,7 +115,7 @@ class triangle:
                 self.arr.append(curr)
                 prev = curr
 
-        print(self.arr[row][col])
+        return self.arr[row][col]
 
     def print(self):
         for row in self.arr:
