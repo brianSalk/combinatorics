@@ -102,7 +102,7 @@ class triangle:
             row.append(1)
             self.arr.append(row)
             prev = row
-    def get(self,row=0,col=0):
+    def get(self,row,col):
         if col >= row:
             raise IndexError("collumn must be in range [0,row]")
         if row >= len(self.arr): # grow triangle to requested size
