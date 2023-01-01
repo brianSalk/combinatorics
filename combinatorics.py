@@ -126,9 +126,11 @@ class ptriangle:
 class btriangle:
     """this class creates an instance of bell's triangle"""
     def __init__(self):
+        """initialize bells triangle with first two rows"""
         self.arr = [[1]]
         self.arr.append([1,2])
     def get(self, row, col):
+        """get value at (row,col) grow triangle if need be"""
         if col >= row:
             raise IndexError("collumn must be less than row")
         if col < 0 or row < 0:
@@ -143,8 +145,10 @@ class btriangle:
                 self.arr.append(curr)
         return self.arr[row][col]
     def print(self):
+        """print bell's triangle"""
         for row self.arr:
             for each in row:
                 print(each)
     def data(self):
+        """get raw array"""
         return self.arr
