@@ -88,7 +88,7 @@ def catalan(n):
     calculates the nth catalan number.
     catalan numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
     return fact(2*n) // (fact(n+1)*fact(n))
-class triangle:
+class ptriangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
         self.arr = []
