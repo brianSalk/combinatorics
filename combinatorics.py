@@ -122,3 +122,29 @@ class ptriangle:
             print(row)
     def data(self):
         return self.arr
+
+class btriangle:
+    """this class creates an instance of bell's triangle"""
+    def __init__(self):
+        self.arr = [[1]]
+        self.arr.append([1,2])
+    def get(self, row, col):
+        if col >= row:
+            raise IndexError("collumn must be less than row")
+        if col < 0 or row < 0:
+            raise IndexError("row and col must both be positive integers")
+        if row >= len(self.arr):
+            for _ in range(row - len(self.arr) + 1):
+                prev = self.arr[-1]
+                curr = [self.arr[-1][-1]] # start each row with last element
+                for p in prev:
+                    curr.append(curr[-1] + p)
+                prev = curr
+                self.arr.append(curr)
+        return self.arr[row][col]
+    def print(self):
+        for row self.arr:
+            for each in row:
+                print(each)
+    def data(self):
+        return self.arr
