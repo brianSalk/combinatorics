@@ -52,7 +52,7 @@ n!
 \dfrac{(2n)!}{(n+1)!n!}
 ```
 # CLASSES
-## triangle
+## ptriangle
 ### __init__(self)
   create new pascals triangle of size 0 (empty triangle)
 ### get(self,row,col)
@@ -61,3 +61,8 @@ n!
   print entire triangle up to the last row specified by use
 ### data(self)
   get 2D python list that stores triangle data
+## btriangle
+### __init__(self)
+  create a new bells triangle of size 2 (two rows)
+### get(self, row, col)
+  retrieve value at the specified row and col in bell's triangle.
