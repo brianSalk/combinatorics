@@ -146,7 +146,7 @@ class btriangle:
         return self.arr[row][col]
     def print(self):
         """print bell's triangle"""
-        for row self.arr:
+        for row in self.arr:
             for each in row:
                 print(each)
     def data(self):
