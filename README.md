@@ -66,3 +66,7 @@ n!
   create a new bells triangle of size 2 (two rows)
 ### get(self, row, col)
   retrieve value at the specified row and col in bell's triangle.
+### print(self):
+  print entire tree
+### data(self):
+  get list contining tree.
