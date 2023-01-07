@@ -159,7 +159,8 @@ class btriangle:
         """print bell's triangle"""
         for row in self.arr:
             for each in row:
-                print(each)
+                print(each, end=' ')
+            print()
     def data(self):
         """get raw array"""
         return self.arr
