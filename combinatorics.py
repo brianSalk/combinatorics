@@ -132,9 +132,8 @@ class ptriangle:
 class btriangle:
     """this class creates an instance of bell's triangle"""
     def __init__(self):
-        """initialize bells triangle with first two rows"""
+        """initialize bells triangle with first row"""
         self.arr = [[1]]
-        self.arr.append([1,2])
     def get(self, row, col):
         """get value at (row,col) grow triangle if need be"""
         if col >= row:
