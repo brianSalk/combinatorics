@@ -131,9 +131,21 @@ class ptriangle:
 
 class btriangle:
     """this class creates an instance of bell's triangle"""
-    def __init__(self):
+    def __init__(self,rows=1):
         """initialize bells triangle with first row"""
         self.arr = [[1]]
+        self.__grow_to(rows-1)
+
+    def __grow_to(self, row):
+        """helper function to grow tringle, DO NOT USE"""
+        for _ in range(row - len(self.arr) + 1):
+            prev = self.arr[-1]
+            curr = [self.arr[-1][-1]] # start each row with last element
+            for p in prev:
+                curr.append(curr[-1] + p)
+            prev = curr
+            self.arr.append(curr)
+
     def get(self, row, col):
         """get value at (row,col) grow triangle if need be"""
         if col >= row:
@@ -141,13 +153,7 @@ class btriangle:
         if col < 0 or row < 0:
             raise IndexError("row and col must both be positive integers")
         if row >= len(self.arr):
-            for _ in range(row - len(self.arr) + 1):
-                prev = self.arr[-1]
-                curr = [self.arr[-1][-1]] # start each row with last element
-                for p in prev:
-                    curr.append(curr[-1] + p)
-                prev = curr
-                self.arr.append(curr)
+            self.__grow_to(row)
         return self.arr[row][col]
     def print(self):
         """print bell's triangle"""
