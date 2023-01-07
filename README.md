@@ -51,6 +51,11 @@ n!
 ```math
 \dfrac{(2n)!}{(n+1)!n!}
 ```
+## paths_in_matrix
+### paths_In_matrix(m,n) where m and n are the heighta dn width of a matrix
+```math
+{n+m-2 \choose n-1} = {n+m-2 \choose m-1}
+```
 # CLASSES
 ## ptriangle
 ### \_\_init\_\_(self)
