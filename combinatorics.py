@@ -103,6 +103,7 @@ class ptriangle:
         row = []
         self.__grow(n)
     def __grow(self, row):
+        """helper function to grow tringle, DO NOT USE"""
         prev = self.arr[-1]
         for _ in range(row-len(self.arr)+1):
             curr = [1]
