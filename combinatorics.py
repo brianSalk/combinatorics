@@ -123,7 +123,9 @@ class ptriangle:
 
     def print(self):
         for row in self.arr:
-            print(row)
+            for each in row:
+                print(each,end=" ")
+            print()
     def data(self):
         return self.arr
 
