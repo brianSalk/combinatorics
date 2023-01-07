@@ -88,6 +88,12 @@ def catalan(n):
     calculates the nth catalan number.
     catalan numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
     return fact(2*n) // (fact(n+1)*fact(n))
+def paths_in_matrix(m,n):
+    """paths_in_matrix(m,n)
+
+    calculates the number of shortest paths from one corner to
+    the other in a mXn matrix"""
+    return C(n+m-2, n-1)
 class ptriangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
