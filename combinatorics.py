@@ -94,6 +94,7 @@ def paths_in_matrix(m,n):
 class ptriangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
+        """initialize pascals triagle of size max(n,1)
         self.arr = []
         prev = [1]
         self.arr.append(prev)
@@ -111,6 +112,7 @@ class ptriangle:
             prev = curr
 
     def get(self,row,col):
+        """get the value at the specified row and col"""
         if col >= row:
             raise IndexError("collumn must be in range [0,row]")
         if row >= len(self.arr): # grow triangle to requested size
@@ -119,11 +121,13 @@ class ptriangle:
         return self.arr[row][col]
 
     def print(self):
+        """print the pascals triangle you've created"""
         for row in self.arr:
             for each in row:
                 print(each,end=" ")
             print()
     def data(self):
+        """return the underlying python list"""
         return self.arr
 
 class btriangle:
