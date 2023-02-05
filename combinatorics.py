@@ -3,13 +3,6 @@
 These functions are some of the most common functions used in combinatorics.
 They are not intended to be extreemly performant but they should be accurate.
 """
-def fact(n):
-    """fact(n): where n is a positive integer of a number.
-    used to calculate a factorial"""
-    ans = 1
-    for i in range(2,n+1):
-        ans *= i
-    return ans
 def P(n,r):
     """P(n,r): where n and r are both positive
     calculate the number of permutations that can be created of length r
@@ -26,6 +19,10 @@ def C(n,r):
     if n < 0:
         return C(-n+r-1,r) * (-1)**r
     return P(n,r) // fact(r)
+def fact(n):
+    """fact(n): where n is a positive integer of a number.
+    used to calculate a factorial"""
+    return P(n,n)
 def multinomial(n,*args):
     """multinomial(n, *args): where all arguments are non-negative
     and sum(args) <= n
