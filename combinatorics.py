@@ -94,7 +94,7 @@ def paths_in_matrix(m,n):
 class ptriangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
-        """initialize pascals triagle of size max(n,1)
+        """initialize pascals triagle of size max(n,1)"""
         self.arr = []
         prev = [1]
         self.arr.append(prev)
