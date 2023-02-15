@@ -163,5 +163,5 @@ class btriangle:
                 print(each, end=' ')
             print()
     def data(self):
-        """get raw array"""
+        """return underlying python list"""
         return self.arr
