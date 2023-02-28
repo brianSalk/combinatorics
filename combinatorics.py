@@ -165,3 +165,6 @@ class btriangle:
     def data(self):
         """return underlying python list"""
         return self.arr
+def pbinom(r,n,p=.5):
+    """probability of getting k successes in n attempts with success probability p """
+    return C(n,r) * (p**r) * ((1-p)**(n-r))
