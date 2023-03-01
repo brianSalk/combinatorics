@@ -59,7 +59,7 @@ n!
 ## pbinom
 ### pbinom(k,n,p) where n is the number of trials, k is the number of successes and p is the probability of success.
 ```math
-{n \choose r} p^r \left( 1-p\right)^\{(n-r)}
+{n \choose r} p^r \left( 1-p\right)^{(n-r)}
 ```
 # CLASSES
 ## ptriangle
