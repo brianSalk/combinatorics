@@ -56,10 +56,10 @@ n!
 ```math
 {n+m-2 \choose n-1} = {n+m-2 \choose m-1}
 ```
-## pnorm
-### pnorm(k,n,p) where n is the number of trials, k is the number of successes and p is the probability of success.
+## pbinom
+### pbinom(k,n,p) where n is the number of trials, k is the number of successes and p is the probability of success.
 ```math
-{n \choose r} = \frac{n!}{(n-r)!r!} p^r \left( 1-p\right)^(n-r)
+{n \choose r} p^r \left( 1-p\right)^(n-r)
 ```
 # CLASSES
 ## ptriangle
