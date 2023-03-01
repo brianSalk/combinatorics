@@ -58,6 +58,9 @@ n!
 ```
 ## pnorm
 ### pnorm(k,n,p) where n is the number of trials, k is the number of successes and p is the probability of success.
+```math
+{n \choose r} = \frac{n!}{(n-r)!r!} p^r \left( 1-p\right)^(n-r)
+```
 # CLASSES
 ## ptriangle
 ### \_\_init\_\_(self)
