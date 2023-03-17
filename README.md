@@ -61,7 +61,7 @@ n!
 ```math
 {n \choose r} p^r \left( 1-p\right)^{(n-r)}
 ```
-# CLASSES
+# TRIANGLES
 ## ptriangle
 ### \_\_init\_\_(self)
   create new pascals triangle of size 0 (empty triangle)
