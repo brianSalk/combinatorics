@@ -91,6 +91,9 @@ def paths_in_matrix(m,n):
     calculates the number of shortest paths from one corner to
     the other in a mXn matrix"""
     return C(n+m-2, n-1)
+def pbinom(r,n,p=.5):
+    """probability of getting k successes in n attempts with success probability p """
+    return C(n,r) * (p**r) * ((1-p)**(n-r))
 class ptriangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
@@ -165,6 +168,3 @@ class btriangle:
     def data(self):
         """return underlying python list"""
         return self.arr
-def pbinom(r,n,p=.5):
-    """probability of getting k successes in n attempts with success probability p """
-    return C(n,r) * (p**r) * ((1-p)**(n-r))
