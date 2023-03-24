@@ -1,4 +1,15 @@
-class ptriangle:
+from abc import ABC, abstractmethod
+class triangle(ABC):
+    @abstractmethod
+    def get(self,row,col):
+        pass
+    def print(self):
+        for row in self.arr:
+            for each in row:
+                print(each,end=" ")
+            print()
+    
+class ptriangle(triangle):
     """this class creates pascals triangle"""
     def __init__(self,n=0):
         """initialize pascals triagle of size max(n,1)"""
@@ -6,8 +17,8 @@ class ptriangle:
         prev = [1]
         self.arr.append(prev)
         row = []
-        self.__grow(n)
-    def __grow(self, row):
+        self.__grow_to(n)
+    def __grow_to(self, row):
         """helper function to grow tringle, DO NOT USE"""
         prev = self.arr[-1]
         for _ in range(row-len(self.arr)+1):
@@ -23,21 +34,15 @@ class ptriangle:
         if col >= row:
             raise IndexError("collumn must be in range [0,row]")
         if row >= len(self.arr): # grow triangle to requested size
-            self.__grow(row)
+            self.__grow_to(row)
 
         return self.arr[row][col]
 
-    def print(self):
-        """print the pascals triangle you've created"""
-        for row in self.arr:
-            for each in row:
-                print(each,end=" ")
-            print()
     def data(self):
         """return the underlying python list"""
         return self.arr
 
-class btriangle:
+class btriangle(triangle):
     """this class creates an instance of bell's triangle"""
     def __init__(self,rows=1):
         """initialize bells triangle with first row"""
@@ -63,12 +68,6 @@ class btriangle:
         if row >= len(self.arr):
             self.__grow_to(row)
         return self.arr[row][col]
-    def print(self):
-        """print bell's triangle"""
-        for row in self.arr:
-            for each in row:
-                print(each, end=' ')
-            print()
     def data(self):
         """return underlying python list"""
         return self.arr
