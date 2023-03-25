@@ -17,11 +17,11 @@ class ptriangle(triangle):
         prev = [1]
         self.arr.append(prev)
         row = []
-        self.__grow_to(n)
+        self.__grow_to(n-1)
     def __grow_to(self, row):
         """helper function to grow tringle, DO NOT USE"""
         prev = self.arr[-1]
-        for _ in range(row-len(self.arr)+1):
+        for _ in range(row-len(self.arr) + 1):
             curr = [1]
             for i in range(len(prev)-1):
                 curr.append(prev[i] + prev[i+1])
