@@ -19,6 +19,14 @@ def C(n,r):
     if n < 0:
         return C(-n+r-1,r) * (-1)**r
     return P(n,r) // fact(r)
+def binomial_probability(n,r,p):
+    """
+    binomial_probability(n,r,p): probability of getting r success
+    out of n total trials where each success has probability p
+    """
+    if 0 > p > 1:
+        raise Exception(f'probability {p} must be in range [0,1]')
+    return C(n,r) * p**r * (1-p)**(n-r)
 def fact(n):
     """fact(n): where n is a positive integer of a number.
     used to calculate a factorial"""
