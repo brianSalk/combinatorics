@@ -107,10 +107,10 @@ def paths_in_matrix(m,n):
     return C(n+m-2, n-1)
 
 
-def pbinom(r,n,p=.5):
+def pbinom(n,r,p=.5):
     """probability of getting k successes in n attempts with success probability p """
-    if 0 > p > 1:
-        throw ValueError(f'p must be in range [0,1]')
+    if p < 0 or p > 1:
+        raise ValueError(f'p must be in range [0,1]')
     return C(n,r) * (p**r) * ((1-p)**(n-r))
 
 
