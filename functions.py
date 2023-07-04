@@ -11,6 +11,8 @@ def P(n,r):
     for i in range(n-r+1, n+1):
         ans*=i
     return ans
+
+
 def C(n,r):
     """C(n,r): where n may be positive or negative and r is non-negative
     counts the number of combinations that can be created by choosing r 
@@ -19,6 +21,8 @@ def C(n,r):
     if n < 0:
         return C(-n+r-1,r) * (-1)**r
     return P(n,r) // fact(r)
+
+
 def binomial_probability(n,r,p):
     """
     binomial_probability(n,r,p): probability of getting r success
@@ -27,17 +31,19 @@ def binomial_probability(n,r,p):
     if 0 > p > 1:
         raise Exception(f'probability {p} must be in range [0,1]')
     return C(n,r) * p**r * (1-p)**(n-r)
+
+
 def fact(n):
     """fact(n): where n is a positive integer of a number.
     used to calculate a factorial"""
     return P(n,n)
+
+
 def multinomial(n,*args):
     """multinomial(n, *args): where all arguments are non-negative
     and sum(args) <= n
     
     counts unique permutations of n given args[i] identical elements from group i """
-
-
     den = 1
     for k in args:
         den *= fact(k)
@@ -61,6 +67,8 @@ def stirling1(n,m):
             nested_ans += ((-1)**j * j**(n-m+k))/(fact(j)*fact(k-j))
         ans += nested_ans*ans1
     return ans * (fact(2*n-m)/fact(m-1))
+
+
 def stirling2(n,k):
     """stirling2(n,k): where n and k are both non-negative
     counts how many ways we can partition n distinct elements into k
@@ -69,6 +77,8 @@ def stirling2(n,k):
     for i in range(k+1):
         ans += (-1)**i * C(k,i) * (k-i)**n
     return ans // fact(k)
+
+
 def bell(n):
     """bell(n): where n is a positive integer:
         calculates the number of nonempty subsets a set of size 'n' can
@@ -77,10 +87,13 @@ def bell(n):
     for k in range(1,n+1):
         ans += stirling2(n,k)
     return ans
+
+
 def stars_bars(n,k):
     """stars_bars(n,k) == C(n+k-1, k-1)
 Where n is the number of identical items and k is tne number of buckets to place them in"""
     return C(n + k-1, k-1)
+
 
 def catalan(n):
     """catalin(n): where n is non-negative
@@ -88,15 +101,21 @@ def catalan(n):
     calculates the nth catalan number.
     catalan numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
     return fact(2*n) // (fact(n+1)*fact(n))
+
+
 def paths_in_matrix(m,n):
     """paths_in_matrix(m,n)
 
     calculates the number of shortest paths from one corner to
     the other in a mXn matrix"""
     return C(n+m-2, n-1)
+
+
 def pbinom(r,n,p=.5):
     """probability of getting k successes in n attempts with success probability p """
     return C(n,r) * (p**r) * ((1-p)**(n-r))
+
+
 class ptriangle:
     """this class creates pascals triangle"""
     def __init__(self,n=0):
@@ -106,6 +125,8 @@ class ptriangle:
         self.arr.append(prev)
         row = []
         self.__grow(n)
+
+    
     def __grow(self, row):
         """helper function to grow tringle, DO NOT USE"""
         prev = self.arr[-1]
@@ -117,6 +138,7 @@ class ptriangle:
             self.arr.append(curr)
             prev = curr
 
+    
     def get(self,row,col):
         """get the value at the specified row and col"""
         if col >= row:
@@ -132,9 +154,12 @@ class ptriangle:
             for each in row:
                 print(each,end=" ")
             print()
+
+    
     def data(self):
         """return the underlying python list"""
         return self.arr
+
 
 class btriangle:
     """this class creates an instance of bell's triangle"""
