@@ -11,11 +11,7 @@ A python library of various useful combinatorics functions and classes.
 ```math
 {n \choose r} = \frac{n!}{(n-r)!r!}
 ```
-## binomial_probability
-### binomial_probability(n,r,p): probability of r successes out of n trials given probability of success p
-```math
-{n \choose r} \times p^n \times (1-p)^{n-r}
-```
+
 ## fact
 ### fact(n): calculate factorial of n
 ```math
