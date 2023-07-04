@@ -23,16 +23,6 @@ def C(n,r):
     return P(n,r) // fact(r)
 
 
-def binomial_probability(n,r,p):
-    """
-    binomial_probability(n,r,p): probability of getting r success
-    out of n total trials where each success has probability p
-    """
-    if 0 > p > 1:
-        raise Exception(f'probability {p} must be in range [0,1]')
-    return C(n,r) * p**r * (1-p)**(n-r)
-
-
 def fact(n):
     """fact(n): where n is a positive integer of a number.
     used to calculate a factorial"""
@@ -88,7 +78,13 @@ def bell(n):
         ans += stirling2(n,k)
     return ans
 
-
+def binomial_theorem(a,b,n):
+    """binomial_theorem(a,b,n)"""
+    ans = 0
+    for i in range(n+1):
+        ans += C(n,i) * a**(n-i) * b**(i)
+    return ans
+    
 def stars_bars(n,k):
     """stars_bars(n,k) == C(n+k-1, k-1)
 Where n is the number of identical items and k is tne number of buckets to place them in"""
@@ -113,6 +109,8 @@ def paths_in_matrix(m,n):
 
 def pbinom(r,n,p=.5):
     """probability of getting k successes in n attempts with success probability p """
+    if 0 > p > 1:
+        throw ValueError(f'p must be in range [0,1]')
     return C(n,r) * (p**r) * ((1-p)**(n-r))
 
 
