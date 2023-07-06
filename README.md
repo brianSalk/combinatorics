@@ -15,7 +15,7 @@ A python library of various useful combinatorics functions and classes.
 ## fact
 ### fact(n): calculate factorial of n
 ```math
-n!
+n!=\prod_{i=2}^{n} i
 ```
 ## multinomial
 ### multinomial(n,r1,r2,r3...): count number of distinct permutations of size n when each r is a group of 1 or more identical items
