@@ -37,6 +37,10 @@ def multinomial(n,*args):
     and sum(args) <= n
     
     counts unique permutations of n given args[i] identical elements from group i """
+    if n < 0 or any(each < 0 for each in args):
+        raise ValueError('all arguments must be non-negative')
+    if sum(args) > n:
+        raise ValueError('sum of args must not exceed n')
     den = 1
     for k in args:
         den *= fact(k)

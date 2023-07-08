@@ -33,5 +33,14 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(fact(2),2)
         self.assertEqual(fact(3),6)
         self.assertEqual(fact(4),24)
+
+    def test_multinomial(self):
+        self.assertEqual(multinomial(5,2,3),10)
+        # test raises if negative
+        with self.assertRaises(ValueError):
+            multinomial(5,2,-1,4)
+        with self.assertRaises(ValueError):
+            multinomial(5,2,4)
+            
 if __name__ == "__main__":
     unittest.main()
