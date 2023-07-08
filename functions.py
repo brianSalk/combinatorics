@@ -8,7 +8,7 @@ def P(n,r):
     calculate the number of permutations that can be created of length r
     given n distinct elements"""
     if n < 0 or r < 0:
-        raise ValueError(f'n and r must be positive')
+        raise ValueError(f'n and r must be non-negative')
     ans = 1
     for i in range(n-r+1, n+1):
         ans*=i
@@ -19,7 +19,8 @@ def C(n,r):
     """C(n,r): where n may be positive or negative and r is non-negative
     counts the number of combinations that can be created by choosing r 
     from n distinct elements"""
-
+    if r < 0:
+        raise ValueError("r must be non-negative")
     if n < 0:
         return C(-n+r-1,r) * (-1)**r
     return P(n,r) // fact(r)
