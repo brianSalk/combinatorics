@@ -44,6 +44,7 @@ class TestFunctions(unittest.TestCase):
     
     def test_stirling1(self):
         self.assertEqual(stirling1(5,3), 35)
+        self.assertEqual(stirling1(10,3), 1_172_700)
 
     def test_stirling2(self):
         self.assertEqual(stirling2(5,3), 25)

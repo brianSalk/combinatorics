@@ -46,7 +46,7 @@ def multinomial(n,*args):
         den *= fact(k)
     return fact(n) // den
 
-def stirling1(n,m):
+def stirling1(n,k):
     """sterling1(n,m): where n and m are non-negative
 
     counts permutations of n distinct elements arranged in 
@@ -54,17 +54,20 @@ def stirling1(n,m):
     for example.  If you have 6 people and 3 three tables, 
     there are sterling1(6,3) unique ways for them to be seated assuming 
     that all tables are identical, every table has at least 1 person sitting at it, and that we do not want to count rotations or reflections"""
-
-    ans1 = 0
-    ans = 0
-    for k in range(n-m+1):
-        ans1 += 1/((n+k)*fact(n-m-k)*fact(n-m+k))
-        nested_ans = 0
-        for j in range(k+1):
-            nested_ans += ((-1)**j * j**(n-m+k))/(fact(j)*fact(k-j))
-        ans += nested_ans*ans1
-    return ans * (fact(2*n-m)/fact(m-1))
-
+    if n < 0:
+        raise ValueError('n must be positive')
+    if k > n:
+        raise ValueError('k must be in the range [0,n]')
+    if n == k == 0:
+        return 0
+    def __S1(n, k):
+        if n == k == 0:
+            return 1
+        elif n == 0 or k == 0:
+            return 0
+        return -(n-1)*__S1(n-1,k) + __S1(n-1,k-1)
+    ans = __S1(n,k)
+    return ans if ans >=0 else -ans
 
 def stirling2(n,k):
     """stirling2(n,k): where n and k are both non-negative
