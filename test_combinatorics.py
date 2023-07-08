@@ -41,6 +41,12 @@ class TestFunctions(unittest.TestCase):
             multinomial(5,2,-1,4)
         with self.assertRaises(ValueError):
             multinomial(5,2,4)
-            
+    
+    def test_stirling1(self):
+        self.assertEqual(stirling1(5,3), 35)
+
+    def test_stirling2(self):
+        self.assertEqual(stirling2(5,3), 25)
+        self.assertEqual(stirling2(7,4), 350)
 if __name__ == "__main__":
     unittest.main()
