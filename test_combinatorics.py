@@ -27,5 +27,11 @@ class TestFunctions(unittest.TestCase):
         # throw if r is negative
         with self.assertRaises(ValueError):
             C(1,-1)
+    def test_fact(self):
+        self.assertEqual(fact(0),1)
+        self.assertEqual(fact(1),1)
+        self.assertEqual(fact(2),2)
+        self.assertEqual(fact(3),6)
+        self.assertEqual(fact(4),24)
 if __name__ == "__main__":
     unittest.main()
