@@ -49,5 +49,8 @@ class TestFunctions(unittest.TestCase):
     def test_stirling2(self):
         self.assertEqual(stirling2(5,3), 25)
         self.assertEqual(stirling2(7,4), 350)
+    def test_bell(self):
+        self.assertEqual(bell(4),  15)
+        self.assertEqual(bell(5),  52)
 if __name__ == "__main__":
     unittest.main()
