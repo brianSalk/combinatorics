@@ -7,6 +7,8 @@ def P(n,r):
     """P(n,r): where n and r are both positive
     calculate the number of permutations that can be created of length r
     given n distinct elements"""
+    if n < 0 or r < 0:
+        raise ValueError(f'n and r must be positive')
     ans = 1
     for i in range(n-r+1, n+1):
         ans*=i
