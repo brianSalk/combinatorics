@@ -50,7 +50,10 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(stirling2(5,3), 25)
         self.assertEqual(stirling2(7,4), 350)
     def test_bell(self):
+        self.assertEqual(bell(0), 1)
         self.assertEqual(bell(4),  15)
         self.assertEqual(bell(5),  52)
+        with self.assertRaises(ValueError):
+            bell(-1)
 if __name__ == "__main__":
     unittest.main()

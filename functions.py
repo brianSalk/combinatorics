@@ -83,10 +83,12 @@ def bell(n):
     """bell(n): where n is a positive integer:
         calculates the number of nonempty subsets a set of size 'n' can
         be partitioned into"""
+    if n < 0:
+        raise ValueError('n must be non-negative')
     ans = 0
     for k in range(1,n+1):
         ans += stirling2(n,k)
-    return ans
+    return ans if ans != 0 else 1
 
 def binomial_theorem(a,b,n):
     """binomial_theorem(a,b,n)"""
