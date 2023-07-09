@@ -55,5 +55,11 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(bell(5),  52)
         with self.assertRaises(ValueError):
             bell(-1)
+    def test_ordered_bell(self):
+        self.assertEqual(ordered_bell(0), 1)
+        self.assertEqual(ordered_bell(4),  75)
+        self.assertEqual(ordered_bell(5),  541)
+        with self.assertRaises(ValueError):
+            bell(-1)
 if __name__ == "__main__":
     unittest.main()
