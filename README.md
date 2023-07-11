@@ -37,6 +37,11 @@ n!=\prod_{i=2}^{n} i
 ```math
 \sum_{k=1}^{n} \left\{ n \atop k \right\}
 ```
+## ordered_bell
+### ordered_bell(n): count unique partitions of a set, where the ordering of the partitions matters
+```math
+\sum_{k=1}^{n} k! \left\{ n \atop k \right\}
+```
 ## stars_bars
 ### stars_bars(n,k): calculate groups of identical objects
 ```math
