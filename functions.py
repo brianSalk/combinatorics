@@ -131,9 +131,32 @@ def paths_in_matrix(m,n):
     return C(n+m-2, n-1)
 
 
-def pbinom(n,r,p=.5):
+def pbinom(n,r,p=.5,type='equal'):
     """probability of getting r successes in n attempts with success probability p """
+    type = type.lower()
+    ans = 0
+    if r < 0 or r > n: 
+        if type == 'less_than' or type == 'lt':
+            pass 
+        else:
+            return 0
     if p < 0 or p > 1:
         raise ValueError(f'p must be in range [0,1]')
-    return C(n,r) * p**r * (1-p)**(n-r)
-
+    if type == 'equal' or type == 'eq'
+        return C(n,r) * p**r * (1-p)**(n-r)
+    elif type == 'less_than' or type == 'lt':
+        for i in range(r):
+            ans += C(n,i) * p**i * (1-p)**(n-i)
+        return ans
+    elif type == 'less_than_or_equal' or type == 'le':
+        for i in range(r+1):
+            ans += C(n,i) * p**i * (1-p)**(n-i)
+        return ans
+    elif type == 'greater_than' or type == 'gt': 
+        for i in range(r+1,n+1):
+            ans += C(n,i) * p**i * (1-p)**(n-i)
+        return ans
+    elif type == 'greater_than_or_equal' or type == 'ge':
+        for i in range(r, n+1)
+            ans += C(n,i) * p**i * (1-p)**(n-i)
+        return ans
