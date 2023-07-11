@@ -61,5 +61,13 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(ordered_bell(5),  541)
         with self.assertRaises(ValueError):
             bell(-1)
+    def test_stars_bars(self):
+        def c_to_stars(n,k):
+            return C(n+k-1, k-1)
+        for i in range(8):
+            for j in range(i):
+                if i > 0 and j > 0:
+                    self.assertEqual(c_to_stars(i,j), stars_bars(i,j))
+
 if __name__ == "__main__":
     unittest.main()

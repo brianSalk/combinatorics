@@ -91,16 +91,19 @@ def bell(n):
     return ans if ans != 0 else 1
 
 def ordered_bell(n):
-    "ordered_bell(n): where n is a non-negative integer"
+    """ordered_bell(n): where n is a non-negative integer
+
+    counts the number of permutations of non-empty sets that a set of size 'n' can be partitioned into"""
     if n < 0:
         raise ValueError('n must be non-negative')
     ans = 0
     for k in range(1,n+1):
         ans += ( fact(k) * stirling2(n,k) )
     return ans if ans != 0 else 1
-
+# should i just delete this?
 def binomial_theorem(a,b,n):
-    """binomial_theorem(a,b,n)"""
+    """binomial_theorem(a,b,n)
+    (a+b)**n"""
     ans = 0
     for i in range(n+1):
         ans += C(n,i) * a**(n-i) * b**(i)
