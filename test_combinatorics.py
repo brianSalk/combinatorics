@@ -69,5 +69,17 @@ class TestFunctions(unittest.TestCase):
                 if i > 0 and j > 0:
                     self.assertEqual(c_to_stars(i,j), stars_bars(i,j))
 
+    # maybe I should delete binomial_theorem...
+    def test_catalan(self):
+        expected = [1,1,2,5,14,42,132]
+        for i,ex in enumerate(expected):
+            self.assertEqual(catalan(i), ex)
+        with self.assertRaises(ValueError):
+            catalan(-1)
+    def test_paths_in_matrix(self):
+        self.assertEqual(paths_in_matrix(3,4), 10)
+        self.assertEqual(paths_in_matrix(10,9), 24310)
+        self.assertEqual(paths_in_matrix(2,3), 3)
+
 if __name__ == "__main__":
     unittest.main()
