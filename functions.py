@@ -135,11 +135,14 @@ def pbinom(n,r,p=.5,type='equal'):
     """probability of getting r successes in n attempts with success probability p """
     type = type.lower()
     ans = 0
-    if r < 0 or r > n: 
-        if type == 'less_than' or type == 'lt':
-            pass 
-        else:
-            return 0
+    if r < 0: 
+        if type == 'gt' or type == 'greater_than' or type == 'ge' or type == 'greater_than_or_equal' or type == 'not_equal' or type == 'ne':
+            return 1
+        return 0
+    if r > n:
+        if type == 'lt' or type == 'less_than' or type == 'le' or type == 'less_than_or_equal' or type == 'not_equal' or type == 'ne':
+            return 1
+        return 0
     if p < 0 or p > 1:
         raise ValueError(f'p must be in range [0,1]')
     if type == 'equal' or type == 'eq':
