@@ -160,3 +160,5 @@ def pbinom(n,r,p=.5,type='equal'):
         for i in range(r, n+1):
             ans += C(n,i) * p**i * (1-p)**(n-i)
         return ans
+    elif type == 'not_equal' or type == 'ne':
+        return 1-(C(n,r) * p**r * (1-p)**(n-r))

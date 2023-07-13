@@ -100,6 +100,9 @@ class TestFunctions(unittest.TestCase):
         self.assertAlmostEqual(pbinom(10,7,.8,'ge'), .879,places=2)
         self.assertAlmostEqual(pbinom(10,5,.2,'ge'), .032,places=2)
 
+        self.assertAlmostEqual(pbinom(10,7,.8,'ne'), 1-.201,places=2)
+        self.assertAlmostEqual(pbinom(10,5,.2,'ne'), 1-.026,places=2)
+
         with self.assertRaises(ValueError):
             pbinom(2,1,2)
 if __name__ == "__main__":
