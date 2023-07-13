@@ -87,5 +87,14 @@ class TestFunctions(unittest.TestCase):
         
         self.assertAlmostEqual(pbinom(10,7,.8,'lt'), .121,places=2)
         self.assertAlmostEqual(pbinom(10,5,.2,'lt'), .968,places=2)
+
+        self.assertAlmostEqual(pbinom(10,7,.8,'le'), .322,places=2)
+        self.assertAlmostEqual(pbinom(10,5,.2,'le'), .994,places=2)
+
+        self.assertAlmostEqual(pbinom(10,7,.8,'gt'), .678,places=2)
+        self.assertAlmostEqual(pbinom(10,5,.2,'gt'), .006,places=2)
+
+        self.assertAlmostEqual(pbinom(10,7,.8,'ge'), .879,places=2)
+        self.assertAlmostEqual(pbinom(10,5,.2,'ge'), .032,places=2)
 if __name__ == "__main__":
     unittest.main()
