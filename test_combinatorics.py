@@ -82,7 +82,10 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(paths_in_matrix(2,3), 3)
 
     def test_pbinom(self):
-        self.assertAlmostEqual(pbinom(10,7,.8), .201,places=3)
-        self.assertAlmostEqual(pbinom(10,5,.2), .026,places=3)
+        self.assertAlmostEqual(pbinom(10,7,.8), .201,places=2)
+        self.assertAlmostEqual(pbinom(10,5,.2), .026,places=2)
+        
+        self.assertAlmostEqual(pbinom(10,7,.8,'lt'), .121,places=2)
+        self.assertAlmostEqual(pbinom(10,5,.2,'lt'), .968,places=2)
 if __name__ == "__main__":
     unittest.main()

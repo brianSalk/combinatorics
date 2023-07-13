@@ -142,7 +142,7 @@ def pbinom(n,r,p=.5,type='equal'):
             return 0
     if p < 0 or p > 1:
         raise ValueError(f'p must be in range [0,1]')
-    if type == 'equal' or type == 'eq'
+    if type == 'equal' or type == 'eq':
         return C(n,r) * p**r * (1-p)**(n-r)
     elif type == 'less_than' or type == 'lt':
         for i in range(r):
@@ -157,6 +157,6 @@ def pbinom(n,r,p=.5,type='equal'):
             ans += C(n,i) * p**i * (1-p)**(n-i)
         return ans
     elif type == 'greater_than_or_equal' or type == 'ge':
-        for i in range(r, n+1)
+        for i in range(r, n+1):
             ans += C(n,i) * p**i * (1-p)**(n-i)
         return ans
