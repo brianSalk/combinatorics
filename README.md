@@ -16,7 +16,7 @@ A python library of various useful combinatorics functions and classes.
 ### fact(n): calculate factorial of n
 ```math
 n!=\begin{cases}
-\prod\limits_{i=1}\limits^{n} & \text{if } n > 0 \\
+\prod\limits_{i=1}\limits^{n} i & \text{if } n > 0 \\
 1 & n = 0
 \end{cases}
 ```
