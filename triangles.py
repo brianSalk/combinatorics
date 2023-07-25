@@ -31,7 +31,7 @@ class ptriangle(triangle):
 
     def get(self,row,col):
         """get the value at the specified row and col"""
-        if col >= row:
+        if col > row:
             raise IndexError("collumn must be in range [0,row]")
         if row >= len(self.arr): # grow triangle to requested size
             self.__grow_to(row)

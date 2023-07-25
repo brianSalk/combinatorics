@@ -1,4 +1,5 @@
 from functions import *
+from triangles import *
 import unittest
 class TestFunctions(unittest.TestCase):
     
@@ -105,5 +106,12 @@ class TestFunctions(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             pbinom(2,1,2)
+class TestTriangles(unittest.TestCase):
+    def test_ptriangle(self):
+        triangle_obj = ptriangle()
+        self.assertEqual(triangle_obj.get(0, 0), 1)
+        self.assertEqual(triangle_obj.get(2, 1), 2)
+        self.assertEqual(triangle_obj.get(4, 2), 6)
+        self.assertEqual(triangle_obj.get(7,4), 35)
 if __name__ == "__main__":
     unittest.main()
