@@ -113,5 +113,9 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(triangle_obj.get(2, 1), 2)
         self.assertEqual(triangle_obj.get(4, 2), 6)
         self.assertEqual(triangle_obj.get(7,4), 35)
+        with self.assertRaises(IndexError):
+            triangle_obj.get(3,-1)
+            triangle_obj.get(4,5)
+            triangle_obj(-1,4)
 if __name__ == "__main__":
     unittest.main()
