@@ -8,6 +8,11 @@ class triangle(ABC):
             for each in row:
                 print(each,end=" ")
             print()
+    def check_bounds(self, row,col):
+        if col < 0 or row < 0:
+            raise IndexError("row and collumn must be positive")
+        if col > row:
+            raise IndexError("collumn must be in range [0,row]")
     
 class ptriangle(triangle):
     """this class creates pascals triangle"""
@@ -31,8 +36,7 @@ class ptriangle(triangle):
 
     def get(self,row,col):
         """get the value at the specified row and col"""
-        if col > row or col < 0:
-            raise IndexError("collumn must be in range [0,row]")
+        self.check_bounds(row, col)
         if row >= len(self.arr): # grow triangle to requested size
             self.__grow_to(row)
 
@@ -61,10 +65,7 @@ class btriangle(triangle):
 
     def get(self, row, col):
         """get value at (row,col) grow triangle if need be"""
-        if col > row:
-            raise IndexError("collumn must be less than row")
-        if col < 0 or row < 0:
-            raise IndexError("row and col must both be positive integers")
+        self.check_bounds(row, col)
         if row >= len(self.arr):
             self.__grow_to(row)
         return self.arr[row][col]
