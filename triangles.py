@@ -16,13 +16,15 @@ class triangle(ABC):
     
 class ptriangle(triangle):
     """this class creates pascals triangle"""
-    def __init__(self,n=0):
+    def __init__(self,rows=0):
         """initialize pascals triagle of size max(n,1)"""
+        if rows < 0:
+            raise IndexError("constructor argument must be non-negative")
         self.arr = []
         prev = [1]
         self.arr.append(prev)
         row = []
-        self.__grow_to(n-1)
+        self.__grow_to(rows-1)
     def __grow_to(self, row):
         """helper function to grow tringle, DO NOT USE"""
         prev = self.arr[-1]
@@ -49,6 +51,8 @@ class ptriangle(triangle):
 class btriangle(triangle):
     """this class creates an instance of bell's triangle"""
     def __init__(self,rows=1):
+        if rows < 0:
+            raise IndexError("constructor argument must be non-negative")
         """initialize bells triangle with first row"""
         self.arr = [[1]]
         self.__grow_to(rows-1)
