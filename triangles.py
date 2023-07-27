@@ -61,7 +61,7 @@ class btriangle(triangle):
 
     def get(self, row, col):
         """get value at (row,col) grow triangle if need be"""
-        if col >= row:
+        if col > row:
             raise IndexError("collumn must be less than row")
         if col < 0 or row < 0:
             raise IndexError("row and col must both be positive integers")

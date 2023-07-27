@@ -108,14 +108,23 @@ class TestFunctions(unittest.TestCase):
             pbinom(2,1,2)
 class TestTriangles(unittest.TestCase):
     def test_ptriangle(self):
-        triangle_obj = ptriangle()
-        self.assertEqual(triangle_obj.get(0, 0), 1)
-        self.assertEqual(triangle_obj.get(2, 1), 2)
-        self.assertEqual(triangle_obj.get(4, 2), 6)
-        self.assertEqual(triangle_obj.get(7,4), 35)
+        pasc_triangle = ptriangle()
+        self.assertEqual(pasc_triangle.get(0, 0), 1)
+        self.assertEqual(pasc_triangle.get(2, 1), 2)
+        self.assertEqual(pasc_triangle.get(4, 2), 6)
+        self.assertEqual(pasc_triangle.get(7,4), 35)
         with self.assertRaises(IndexError):
-            triangle_obj.get(3,-1)
-            triangle_obj.get(4,5)
-            triangle_obj(-1,4)
+            pasc_triangle.get(3,-1)
+            pasc_triangle.get(4,5)
+            pasc_triangle(-1,4)
+    def test_bells_triagle(self):
+        bell_triangle = btriangle(3)
+        self.assertEqual(bell_triangle.get(0, 0), 1)
+        self.assertEqual(bell_triangle.get(2, 1), 3)
+        self.assertEqual(bell_triangle.get(4, 2), 27)
+        self.assertEqual(bell_triangle.get(6,3), 409)
+        with self.assertRaises(IndexError):
+            bell_triangle.get(-1,0)
+            bell_triangle.get(3,4)
 if __name__ == "__main__":
     unittest.main()
