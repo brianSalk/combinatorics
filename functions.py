@@ -3,7 +3,8 @@
 These functions are some of the most common functions used in combinatorics.
 They are not intended to be extreemly performant but they should be accurate.
 """
-def P(n,r):
+import typing
+def P(n: int,r: int) -> int:
     """P(n,r): where n and r are both positive
     calculate the number of permutations that can be created of length r
     given n distinct elements"""
@@ -15,7 +16,7 @@ def P(n,r):
     return ans
 
 
-def C(n,r):
+def C(n: int,r: int) -> int:
     """C(n,r): where n may be positive or negative and r is non-negative
     counts the number of combinations that can be created by choosing r 
     from n distinct elements"""
@@ -26,13 +27,13 @@ def C(n,r):
     return P(n,r) // fact(r)
 
 
-def fact(n):
+def fact(n: int) -> int:
     """fact(n): where n is a positive integer of a number.
     used to calculate a factorial"""
     return P(n,n)
 
 
-def multinomial(n,*args):
+def multinomial(n: int,*args: int) -> int:
     """multinomial(n, *args): where all arguments are non-negative
     and sum(args) <= n
     
@@ -46,7 +47,7 @@ def multinomial(n,*args):
         den *= fact(k)
     return fact(n) // den
 
-def stirling1(n,k):
+def stirling1(n: int,k: int) -> int:
     """sterling1(n,m): where n and m are non-negative
 
     counts permutations of n distinct elements arranged in 
@@ -69,7 +70,7 @@ def stirling1(n,k):
     ans = __S1(n,k)
     return ans if ans >=0 else -ans
 
-def stirling2(n,k):
+def stirling2(n: int,k: int) -> int:
     """stirling2(n,k): where n and k are both non-negative
     counts how many ways we can partition n distinct elements into k
     non-empty groups"""
@@ -79,7 +80,7 @@ def stirling2(n,k):
     return ans // fact(k)
 
 
-def bell(n):
+def bell(n: int) -> int:
     """bell(n): where n is a non-negative integer:
         calculates the number of nonempty subsets a set of size 'n' can
         be partitioned into"""
@@ -90,7 +91,7 @@ def bell(n):
         ans += stirling2(n,k)
     return ans if ans != 0 else 1
 
-def ordered_bell(n):
+def ordered_bell(n: int) -> int:
     """ordered_bell(n): where n is a non-negative integer
 
     counts the number of permutations of non-empty sets that a set of size 'n' can be partitioned into"""
@@ -101,7 +102,7 @@ def ordered_bell(n):
         ans += ( fact(k) * stirling2(n,k) )
     return ans if ans != 0 else 1
 # should i just delete this?
-def binomial_theorem(a,b,n):
+def binomial_theorem(a,b,n) -> int:
     """binomial_theorem(a,b,n)
     (a+b)**n"""
     ans = 0
@@ -109,13 +110,13 @@ def binomial_theorem(a,b,n):
         ans += C(n,i) * a**(n-i) * b**(i)
     return ans
     
-def stars_bars(n,k):
+def stars_bars(n: int,k: int) -> int:
     """stars_bars(n,k) == C(n+k-1, k-1)
 Where n is the number of identical items and k is tne number of buckets to place them in"""
     return C(n + k-1, k-1)
 
 
-def catalan(n):
+def catalan(n:int) -> int:
     """catalin(n): where n is non-negative
 
     calculates the nth catalan number.
@@ -123,7 +124,7 @@ def catalan(n):
     return fact(2*n) // (fact(n+1)*fact(n))
 
 
-def paths_in_matrix(m,n):
+def paths_in_matrix(m:int,n:int) -> int:
     """paths_in_matrix(m,n)
 
     calculates the number of shortest paths from one corner to
@@ -131,7 +132,7 @@ def paths_in_matrix(m,n):
     return C(n+m-2, n-1)
 
 
-def pbinom(n,r,p=.5,type='equal'):
+def pbinom(n:int,r:int,p: float=.5,type:str='equal') -> float:
     """probability of getting r successes in n attempts with success probability p """
     type = type.lower()
     ans = 0
