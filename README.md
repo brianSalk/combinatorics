@@ -76,6 +76,9 @@ n!=\begin{cases}
 {n \choose r} \times p^r \times \left( 1-p\right)^{(n-r)}
 ```
 # TRIANGLES
+All of these triangles have the same interface, call `get(<row>,<col>)` to retrieve a value from the tree, `print()` to print the tree and `data()` to get the raw python list.  
+All triangles grow if you call `get` on a value larger than the previously allocated tree.  
+
 ## ptriangle
 ### \_\_init\_\_(self)
   create new pascals triangle of size 0 (empty triangle)
