@@ -204,7 +204,8 @@ def paths_in_matrix(m: int, n: int) -> int:
     return C(n + m - 2, n - 1)
 
 
-def pbinom(n: int, r: int, p: float = 0.5, type: Literal["gt", "ge", "eq", "ne", "lt", "le"] = "eq") -> float:
+def pbinom(n: int, r: int, p: float = 0.5, 
+           type: Literal["gt", "ge", "eq", "ne", "lt", "le"] = "eq") -> float:
     """probability of getting r successes in n attempts with success probability p
 
     args:
@@ -259,3 +260,5 @@ def pbinom(n: int, r: int, p: float = 0.5, type: Literal["gt", "ge", "eq", "ne",
         return ans
     elif type == "not_equal" or type == "ne":
         return 1 - (C(n, r) * p**r * (1 - p) ** (n - r))
+    else:
+        raise ValueError(f"type must be one of ['gt', 'ge', 'eq', 'ne', 'lt', 'le']")
