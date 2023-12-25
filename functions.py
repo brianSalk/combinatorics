@@ -4,12 +4,19 @@ These functions are some of the most common functions used in combinatorics.
 They are not intended to be extreemly performant but they should be accurate.
 """
 import typing
+from typing import Literal
 
 
 def P(n: int, r: int) -> int:
-    """P(n,r): where n and r are both positive
-    calculate the number of permutations that can be created of length r
-    given n distinct elements"""
+    """
+    n permutation r
+    
+    counts the number of ways to arrange r elements from a set of n distinct elements
+
+    args:
+    n: number of elements in set
+    r: number of elements in permutation
+    """
     if n < 0 or r < 0:
         raise ValueError(f"n and r must be non-negative")
     ans = 1
@@ -19,9 +26,15 @@ def P(n: int, r: int) -> int:
 
 
 def C(n: int, r: int) -> int:
-    """C(n,r): where n may be positive or negative and r is non-negative
-    counts the number of combinations that can be created by choosing r
-    from n distinct elements"""
+    """
+    n choose r
+
+    counts the number of ways to choose r elements from a set of n distinct elements
+    
+    args:
+    n: number of elements in set (must be non-negative)
+    r: number of elements in combination (may be negative)
+    """
     if r < 0:
         raise ValueError("r must be non-negative")
     if n < 0:
@@ -30,16 +43,24 @@ def C(n: int, r: int) -> int:
 
 
 def fact(n: int) -> int:
-    """fact(n): where n is a positive integer of a number.
-    used to calculate a factorial"""
+    """
+    calculates the factorial of n, n!
+
+    args:
+    n: number to calculate factorial of (must be non-negative)
+    """
     return P(n, n)
 
 
 def multinomial(n: int, *args: int) -> int:
-    """multinomial(n, *args): where all arguments are non-negative
-    and sum(args) <= n
+    """
+    multinomial coefficient: calculates the number of distinct ways to arange n elements where each value in args is a group of identical elements
+   
+    args:
+    n: number of elements to arrange (must be non-negative)
+    args: array storing size of groups of identical elements (must be non-negative)
 
-    counts unique permutations of n given args[i] identical elements from group i"""
+    """
     if n < 0 or any(each < 0 for each in args):
         raise ValueError("all arguments must be non-negative")
     if sum(args) > n:
@@ -51,10 +72,14 @@ def multinomial(n: int, *args: int) -> int:
 
 
 def stirling1(n: int, k: int) -> int:
-    """sterling1(n, k): where n and k are non-negative
+    """
+    Stirling cycle number or Stirling number of the first kind: counts # of ways to arrange n distinct elements into k distinct cycles
 
-    counts permutations of n distinct elements arranged in
-    k distinct cycles.
+    args:
+    n: number of elements to arrange (must be non-negative)
+    k: number of cycles (must be non-negative)
+
+    Example: stirling1(3,2) == 3 
     for example.  If you have 6 people and 3 three tables,
     there are sterling1(6,3) unique ways for them to be seated assuming
     that all tables are identical, every table has at least 1 person sitting at it, and that we do not want to count rotations or reflections"""
@@ -77,10 +102,18 @@ def stirling1(n: int, k: int) -> int:
 
 
 def stirling2(n: int, k: int) -> int:
-    """stirling2(n,k): where n and k are both non-negative
+    """
+    Stirling partition number or stirling number of the second kind:
+    counts # of ways to partition n distinct elements into k non-empty groups
 
-    counts how many ways we can partition n distinct elements into k
-    non-empty groups"""
+    args:
+    n: number of elements to partition (must be non-negative)
+    k: number of groups (must be non-negative)
+
+    Example: stirling2(3,2) == 3
+    If we have 3 unique people and 2 teams to put them on, 
+    there are stirling2(3,2) unique ways to put them on teams
+    """
     ans = 0
     for i in range(k + 1):
         ans += (-1) ** i * C(k, i) * (k - i) ** n
@@ -88,7 +121,11 @@ def stirling2(n: int, k: int) -> int:
 
 
 def bell(n: int) -> int:
-    """bell(n): where n is a non-negative integer:
+    """
+    Bell number: counts the number of ways to partition a set of size n into subsets
+
+    args:
+    n: number of elements to partition (must be non-negative)
 
     calculates the number of nonempty subsets a set of size 'n' can
     be partitioned into"""
@@ -101,7 +138,11 @@ def bell(n: int) -> int:
 
 
 def ordered_bell(n: int) -> int:
-    """ordered_bell(n): where n is a non-negative integer
+    """
+    Ordered Bell number: counts the number of ways to partition a set of size n into weakly ordered subsets
+
+    args:
+    n: number of elements to partition (must be non-negative)
 
     counts the number of permutations of non-empty sets that a set of size 'n' can be partitioned into"""
     if n < 0:
@@ -114,8 +155,10 @@ def ordered_bell(n: int) -> int:
 
 # should i just delete this?
 def binomial_theorem(a, b, n) -> int:
-    """binomial_theorem(a,b,n)
-    (a+b)**n"""
+    """
+    binomial_theorem(a,b,n)
+    (a+b)**n
+    """
     ans = 0
     for i in range(n + 1):
         ans += C(n, i) * a ** (n - i) * b ** (i)
@@ -123,13 +166,24 @@ def binomial_theorem(a, b, n) -> int:
 
 
 def stars_bars(n: int, k: int) -> int:
-    """stars_bars(n,k) == C(n+k-1, k-1)
-    Where n is the number of identical items and k is tne number of buckets to place them in"""
+    """
+    stars_bars aka. multi-choose equal to C(n+k-1,k-1)
+    
+    args:
+    n: number of identical items
+    k: number of buckets to place them in
+
+    Where n is the number of identical items and k is tne number of buckets to place them in
+    """
     return C(n + k - 1, k - 1)
 
 
 def catalan(n: int) -> int:
-    """catalin(n): where n is non-negative
+    """
+    catalan number C(n) = (2n)!/(n+1)!n!
+
+    args:
+    n: number of elements to partition (must be non-negative)
 
     calculates the nth catalan number.
     catalan numbers appear in many counting problems including Dyck words of length 2n and number of structurally unique BSTs of size n"""
@@ -137,15 +191,28 @@ def catalan(n: int) -> int:
 
 
 def paths_in_matrix(m: int, n: int) -> int:
-    """paths_in_matrix(m,n)
+    """
+    number of paths from one corner to the other in a mXn matrix
+    
+    args:
+    m: number of rows in matrix
+    n: number of columns number of columns in matrix
 
     calculates the number of shortest paths from one corner to
-    the other in a mXn matrix"""
+    the other in a mXn matrix
+    """
     return C(n + m - 2, n - 1)
 
 
-def pbinom(n: int, r: int, p: float = 0.5, type: str = "equal") -> float:
-    """probability of getting r successes in n attempts with success probability p"""
+def pbinom(n: int, r: int, p: float = 0.5, type: Literal["gt", "ge", "eq", "ne", "lt", "le"] = "eq") -> float:
+    """probability of getting r successes in n attempts with success probability p
+
+    args:
+    n: number of trials
+    r: number of successes 
+    p: probability of success
+    type: type of probability to calculate, must be one of ["gt", "ge", "eq", "ne", "lt", "le"]
+    """
     type = type.lower()
     ans = 0
     if r < 0:
