@@ -51,10 +51,10 @@ def multinomial(n: int, *args: int) -> int:
 
 
 def stirling1(n: int, k: int) -> int:
-    """sterling1(n,m): where n and m are non-negative
+    """sterling1(n, k): where n and k are non-negative
 
     counts permutations of n distinct elements arranged in
-    r distinct cycles.
+    k distinct cycles.
     for example.  If you have 6 people and 3 three tables,
     there are sterling1(6,3) unique ways for them to be seated assuming
     that all tables are identical, every table has at least 1 person sitting at it, and that we do not want to count rotations or reflections"""
@@ -78,6 +78,7 @@ def stirling1(n: int, k: int) -> int:
 
 def stirling2(n: int, k: int) -> int:
     """stirling2(n,k): where n and k are both non-negative
+
     counts how many ways we can partition n distinct elements into k
     non-empty groups"""
     ans = 0
@@ -88,6 +89,7 @@ def stirling2(n: int, k: int) -> int:
 
 def bell(n: int) -> int:
     """bell(n): where n is a non-negative integer:
+
     calculates the number of nonempty subsets a set of size 'n' can
     be partitioned into"""
     if n < 0:
