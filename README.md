@@ -2,7 +2,7 @@
 A python library of various useful combinatorics functions and classes.
 ## How to use
 to import functions, use `from combinatorics import functions` or `from combinatorics.functions import *`  
-to import functions, use `from combinatorics import triangles` or `from combinatorics.triangles import *`  
+to import triangles, use `from combinatorics import triangles` or `from combinatorics.triangles import *`  
 functions contains common combinatorics functions and triagles contains triagles like pascals triangle,  
 which allows you to do some calculations more efficiently  
 # FUNCTIONS
