@@ -121,6 +121,16 @@ class TestFunctions(unittest.TestCase):
         with self.assertRaises(ValueError):
             pbinom(2, 1, 2)
 
+    def test_derangments(self):
+        self.assertEqual(derangments(0), 1)
+        self.assertEqual(derangments(1), 0)
+        self.assertEqual(derangments(2), 1)
+        self.assertEqual(derangments(3), 2)
+        self.assertEqual(derangments(4), 9)
+        self.assertEqual(derangments(5), 44)
+
+        with self.assertRaises(ValueError):
+            derangments(-1)
 
 class TestTriangles(unittest.TestCase):
     def test_ptriangle(self):
