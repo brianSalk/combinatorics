@@ -75,6 +75,11 @@ n!=\begin{cases}
 ```math
 {n \choose r} \times p^r \times \left( 1-p\right)^{(n-r)}
 ```
+## derangments
+### derangments(n) where n is non-negative.
+```math
+!n = n! \sum_{i=0}^{n} \dfrac{(-1)^i}{i!}
+```
 # TRIANGLES
 All of these triangles have the same interface, call `get(<row>,<col>)` to retrieve a value from the tree, `print()` to print the tree and `data()` to get the raw python list.  
 All triangles grow if you call `get` on a value larger than the previously allocated tree.  
