@@ -275,8 +275,7 @@ def derangments(n: int) -> int:
     """
     if n < 0:
         raise ValueError("n must be non-negative")
-    if n == 0:
-        return 1
-    if n == 1:
-        return 0
-    return (n - 1) * (derangments(n - 1) + derangments(n - 2))
+    s = 0
+    for i in range(n + 1):
+        s += (-1) ** i / fact(i)
+    return round(fact(n) * s)
