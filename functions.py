@@ -262,3 +262,21 @@ def pbinom(n: int, r: int, p: float = 0.5,
         return 1 - (C(n, r) * p**r * (1 - p) ** (n - r))
     else:
         raise ValueError(f"type must be one of ['gt', 'ge', 'eq', 'ne', 'lt', 'le']")
+
+
+def derangments(n: int) -> int:
+    """
+    number of derangements of n elements
+
+    args:
+    n: number of elements to derange (must be non-negative)
+
+    calculates the number of derangements of n elements
+    """
+    if n < 0:
+        raise ValueError("n must be non-negative")
+    if n == 0:
+        return 1
+    if n == 1:
+        return 0
+    return (n - 1) * (derangments(n - 1) + derangments(n - 2))
