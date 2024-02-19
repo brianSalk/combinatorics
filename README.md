@@ -73,7 +73,7 @@ n!=\begin{cases}
 ## pbinom
 ### pbinom(k,n,p,type='equal') where n is the number of trials, k is the number of successes and p is the probability of success.
 ```math
-{n \choose r} \times p^r \times \left( 1-p\right)^{(n-r)}
+P(x) = {n \choose r} \times p^r \times \left( 1-p\right)^{(n-r)}
 ```
 ## derangments
 ### derangments(n) where n is non-negative.
