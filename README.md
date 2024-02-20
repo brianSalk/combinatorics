@@ -53,7 +53,7 @@ n!=\begin{cases}
 ## stars_bars
 ### stars_bars(n,k): calculate groups of identical objects
 ```math
-{ n + k - 1 \choose k-1 }
+\left({n \choose k}\right) = { n + k - 1 \choose k-1 }
 ```
 ## binomial_theorem
 ### binomial_theorem(a,b,n): where a and b are any two terms that are added and n is the power term.
